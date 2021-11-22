@@ -1,0 +1,33 @@
+{
+	"name": "duckengine-demo-game",
+	"version": "1.0.0",
+	"description": "Demo game using DuckEngine",
+	"main": "dist/index.js",
+	"repository": "https://github.com/ksplatdev/DuckEngine-Demo-Game.git",
+	"author": "Bleart Emini",
+	"license": "MIT",
+	"scripts": {
+		"test": "echo \"Test script not implemented!\"",
+		"build": "bash scripts/build.sh",
+		"watch": "parcel public/index.html",
+		"format": "npx prettier --config .prettierrc --write \"src/**/*.ts\"",
+		"format:watch": "npx onchange \"src/**/*.ts\" \"*.json\" \"*.md\" \"examples/**/*.ts\" \"public/**/*\" -- prettier --write --ignore-unknown {{changed}}",
+		"lint": "npx eslint -c .eslintrc.json src/",
+		"lint:watch": "npx onchange \"src/**/*.ts\"  \"examples/**/*.ts\" -- eslint -c .eslintrc.json --fix {{changed}}"
+	},
+	"devDependencies": {
+		"@types/node": "^16.11.9",
+		"@typescript-eslint/eslint-plugin": "^5.4.0",
+		"@typescript-eslint/parser": "^5.4.0",
+		"eslint": "^8.2.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"onchange": "^7.1.0",
+		"parcel-bundler": "^1.12.5",
+		"prettier": "^2.4.1",
+		"typescript": "^4.5.2"
+	},
+	"dependencies": {
+		"duckengine": "2.0.1"
+	}
+}
