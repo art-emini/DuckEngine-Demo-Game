@@ -10,7 +10,7 @@ export default class MyScene extends DuckEngine.Scene {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	public enemyInterval!: any;
 
-	public gameOverText!: Duck.TypeClasses.GameObjects.Interactive.Text;
+	public gameOverText!: Duck.TypeClasses.GameObjects.UI.Text;
 
 	public backgroundSound!: Duck.TypeClasses.Sound.SoundPlayer;
 
@@ -29,7 +29,7 @@ export default class MyScene extends DuckEngine.Scene {
 		) as MyPlayer;
 		this.myPlayer.physics.addCollider(this.myEnemies.group);
 
-		this.gameOverText = this.add.interactive.text('Game Over', {
+		this.gameOverText = this.add.ui.text('Game Over', {
 			x: this.myPlayer.position.x - 100,
 			y: this.myPlayer.position.y,
 			method: 'draw-stroke',
@@ -43,7 +43,7 @@ export default class MyScene extends DuckEngine.Scene {
 		this.gameOverText.visible = false;
 
 		this.backgroundSound = this.add.soundPlayer(bgTrack, {
-			volume: 0.5,
+			volume: 0.3,
 		});
 		this.backgroundSound.element.loop = true;
 
@@ -64,8 +64,8 @@ export default class MyScene extends DuckEngine.Scene {
 		this.myPlayer.updateInput();
 		this.myPlayer.checkForDeath(this.myEnemies);
 
-		(this.gameOverText.position.x = this.myPlayer.position.x - 100),
-			(this.gameOverText.position.y = this.myPlayer.position.y);
+		this.gameOverText.position.x = this.myPlayer.position.x - 100;
+		this.gameOverText.position.y = this.myPlayer.position.y;
 
 		if (!this.myPlayer.alive) {
 			// remove all enemies

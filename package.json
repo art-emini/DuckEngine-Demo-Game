@@ -28,6 +28,6 @@
 		"typescript": "^4.5.2"
 	},
 	"dependencies": {
-		"duckengine": "2.0.1"
+		"duckengine": "2.1.0"
 	}
 }

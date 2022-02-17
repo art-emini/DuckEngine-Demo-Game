@@ -30,11 +30,6 @@ export default class MyPlayer extends Duck.Classes.GameObjects.Circle {
 
 		this.alive = true;
 
-		this.dieFunc = this.scene.once(() => {
-			this.alive = false;
-			this.visible = false;
-		}, false);
-
 		// movement
 		this.speed = 450;
 		this.input = this.scene.add.input().createKeyboardInput();
@@ -56,6 +51,11 @@ export default class MyPlayer extends Duck.Classes.GameObjects.Circle {
 				descriptor: 'D',
 			},
 		]);
+
+		this.dieFunc = this.scene.once(() => {
+			this.alive = false;
+			this.visible = false;
+		}, false);
 	}
 
 	// custom method
